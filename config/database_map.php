@@ -9,7 +9,7 @@ return [
         'UPS1' => 'sqlsrv_195', 'UPJR' => 'sqlsrv_195', 'UPKD' => 'sqlsrv_195', 'UPBL' => 'sqlsrv_195', 'UPML' => 'sqlsrv_195',
         'UPPL' => 'sqlsrv_199', 'UPLP' => 'sqlsrv_199', 'UPMD' => 'sqlsrv_199', 'UPRI' => 'sqlsrv_199',
         'UPPD' => 'sqlsrv_199', 'UPBK' => 'sqlsrv_199', 'DPLL' => 'sqlsrv_199', 'UPJB' => 'sqlsrv_199', 'DPMB' => 'sqlsrv_199',
-        'TEST' => 'sqlsrv_194', 'UPP1' => 'sqlsrv_194', 'UPAM' => 'sqlsrv_194', 'UPGL' => 'sqlsrv_194',
+        'TEST' => 'sqlsrv_194', 'UPP1' => 'sqlsrv_194', 'UPAM' => 'sqlsrv_194', 'UPGL' => 'sqlsrv_194', 'UPIT' => 'sqlsrv_195',
 
         // Mapping Company IM
         // sqlsrv_194
