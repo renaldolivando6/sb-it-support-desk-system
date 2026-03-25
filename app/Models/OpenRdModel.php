@@ -8,7 +8,6 @@ use Exception;
 
 class OpenRdModel extends Model
 {
-    protected $connection = 'sqlsrv'; // Default connection
     protected $table = 'customerorder.dbo.xRere_OpenRDRY';
     public $timestamps = false;
 

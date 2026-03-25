@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class OpenRdHistory extends Model
 {
-    protected $connection = 'sqlsrv';
     protected $table = 'open_rd_histories';
 
     protected $fillable = [
