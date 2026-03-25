@@ -12,9 +12,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
-        ->name('register');
+        ->name('register')
+        ->middleware(\App\Http\Middleware\AdminRegisterAccess::class);
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
+    Route::post('register', [RegisteredUserController::class, 'store'])
+        ->middleware(\App\Http\Middleware\AdminRegisterAccess::class);
+
+    Route::post('verify-register-access', function (\Illuminate\Http\Request $request) {
+        if ($request->admin_password === 'gersang123') {
+            $request->session()->put('register_access', true);
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 403);
+    })->name('verify.register.access');
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');

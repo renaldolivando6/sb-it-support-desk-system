@@ -1,6 +1,6 @@
-import { Head, useForm } from '@inertiajs/react';
+import { Head, useForm, router } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
-import { FormEventHandler } from 'react';
+import { FormEventHandler, useState } from 'react';
 
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
@@ -28,6 +28,10 @@ export default function Login({ status, canResetPassword }: LoginProps) {
         remember: false,
     });
 
+    const [showAdminModal, setShowAdminModal] = useState(false);
+    const [adminPassword, setAdminPassword] = useState('');
+    const [adminError, setAdminError] = useState('');
+
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
         post(route('login'), {
@@ -35,14 +39,30 @@ export default function Login({ status, canResetPassword }: LoginProps) {
         });
     };
 
+    const handleSignUpClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setShowAdminModal(true);
+        setAdminPassword('');
+        setAdminError('');
+    };
+
+    const handleAdminSubmit = () => {
+        if (adminPassword === 'gersang123') {
+            setShowAdminModal(false);
+            router.visit(route('register'));
+        } else {
+            setAdminError('Wrong admin password');
+        }
+    };
+
     return (
-        <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
+        <AuthLayout title="Log in to your account" description="Enter your username and password below to log in">
             <Head title="Log in" />
 
             <form className="flex flex-col gap-6" onSubmit={submit}>
                 <div className="grid gap-6">
                     <div className="grid gap-2">
-                        <Label htmlFor="email">Username</Label>
+                        <Label htmlFor="username">Username</Label>
                         <Input
                             id="username"
                             type="text"
@@ -91,13 +111,43 @@ export default function Login({ status, canResetPassword }: LoginProps) {
 
                 <div className="text-muted-foreground text-center text-sm">
                     Don't have an account?{' '}
-                    <TextLink href={route('register')} tabIndex={5}>
+                    <a href="#" onClick={handleSignUpClick} className="text-primary underline" tabIndex={5}>
                         Sign up
-                    </TextLink>
+                    </a>
                 </div>
             </form>
 
             {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
+
+            {/* Admin Password Modal */}
+            {showAdminModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+                    <div className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl">
+                        <h3 className="text-lg font-semibold mb-4">Admin Access Required</h3>
+                        <p className="text-sm text-gray-600 mb-4">Enter admin password to access registration.</p>
+                        <Input
+                            type="password"
+                            value={adminPassword}
+                            onChange={(e) => {
+                                setAdminPassword(e.target.value);
+                                setAdminError('');
+                            }}
+                            onKeyDown={(e) => e.key === 'Enter' && handleAdminSubmit()}
+                            placeholder="Admin password"
+                            autoFocus
+                        />
+                        {adminError && <p className="text-red-500 text-sm mt-2">{adminError}</p>}
+                        <div className="flex justify-end gap-2 mt-4">
+                            <Button variant="outline" onClick={() => setShowAdminModal(false)}>
+                                Cancel
+                            </Button>
+                            <Button onClick={handleAdminSubmit}>
+                                Submit
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </AuthLayout>
     );
 }
