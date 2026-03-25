@@ -15,12 +15,12 @@ export function AppSidebar() {
     const mainNavItems: NavItem[] = [
         {
             title: 'Home',
-            url: '/internalsupportsb/public/',
+            url: '/',
             icon: Home,
         },
         {
             title: 'Dashboard',
-            url: '/internalsupportsb/public/dashboard',
+            url: '/dashboard',
             icon: LayoutGrid,
         },
         {
@@ -29,12 +29,12 @@ export function AppSidebar() {
             children: [
                 { 
                     title: 'Open RD', 
-                    url: '/internalsupportsb/public/job/tax/openrd', 
+                    url: '/job/tax/openrd', 
                     icon: Unlock 
                 },
                 { 
                     title: 'Refresh NPWP', 
-                    url: '/internalsupportsb/public/job/tax/refresh-npwp', 
+                    url: '/job/tax/refresh-npwp', 
                     icon: RefreshCcw 
                 },
             ],
@@ -45,17 +45,17 @@ export function AppSidebar() {
             children: [
                 { 
                     title: 'Buka SJ / Suspend', 
-                    url: '/internalsupportsb/public/buka-sj', 
+                    url: '/buka-sj', 
                     icon: Unlock 
                 },
                 { 
                     title: 'Buka LP', 
-                    url: '/internalsupportsb/public/buka-lp', 
+                    url: '/buka-lp', 
                     icon: Unlock 
                 },
                 { 
                     title: 'RPS Bulanan', 
-                    url: '/internalsupportsb/public/rps-bulanan', 
+                    url: '/rps-bulanan', 
                     icon: FileText 
                 },
             ],
@@ -66,29 +66,29 @@ export function AppSidebar() {
             children: [
                 { 
                     title: 'COP', 
-                    url: '/internalsupportsb/public/cop', 
+                    url: '/cop', 
                     icon: AppWindow 
                 },
                 { 
                     title: 'IM', 
-                    url: '/internalsupportsb/public/im', 
+                    url: '/im', 
                     icon: AppWindow 
                 },
                 { 
                     title: 'Database', 
-                    url: '/internalsupportsb/public/database', 
+                    url: '/database', 
                     icon: Database 
                 },
                 { 
                     title: 'Authorization', 
-                    url: '/internalsupportsb/public/authorization', 
+                    url: '/authorization', 
                     icon: Fingerprint 
                 },
             ],
         },
         {
             title: 'Administrator',
-            url: '/internalsupportsb/public/administrator',
+            url: '/administrator',
             icon: UserCog,
         },
     ];
@@ -113,7 +113,7 @@ export function AppSidebar() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href="/internalsupportsb/public/dashboard" prefetch>
+                            <Link href="/dashboard" prefetch>
                                 <AppLogo />
                             </Link>
                         </SidebarMenuButton>

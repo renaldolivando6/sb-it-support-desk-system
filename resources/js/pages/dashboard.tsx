@@ -6,7 +6,7 @@ import { Head } from '@inertiajs/react';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Dashboard',
-        href: '/internalsupportsb/public/dashboard',
+        href: '/dashboard',
     },
 ];
 
@@ -27,7 +27,7 @@ export default function Dashboard() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard">
-                <link rel="icon" type="image/png" href="/internalsupportsb/public/images/logo_internalsb.png" />
+                <link rel="icon" type="image/png" href="/images/logo_internalsb.png" />
             </Head>
             
             <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">

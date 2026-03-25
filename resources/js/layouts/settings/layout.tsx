@@ -9,17 +9,17 @@ import { type PropsWithChildren } from 'react';
 const sidebarNavItems: NavItem[] = [
     {
         title: 'Profile',
-        url: '/internalsupportsb/public/settings/profile',
+        url: '/profile',
         icon: null,
     },
     {
         title: 'Password',
-        url: '/internalsupportsb/public/settings/password',
+        url: '/settings/password',
         icon: null,
     },
     {
         title: 'Appearance',
-        url: '/internalsupportsb/public/settings/appearance',
+        url: '/settings/appearance',
         icon: null,
     },
 ];

@@ -9,43 +9,43 @@ const Homepage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const recipes = [
-    "/internalsupportsb/public/images/resep_rosebrand_1.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_2.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_3.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_4.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_5.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_6.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_7.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_8.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_9.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_10.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_11.jpg",
-    "/internalsupportsb/public/images/resep_rosebrand_12.jpg",
+    "/images/resep_rosebrand_1.jpg",
+    "/images/resep_rosebrand_2.jpg",
+    "/images/resep_rosebrand_3.jpg",
+    "/images/resep_rosebrand_4.jpg",
+    "/images/resep_rosebrand_5.jpg",
+    "/images/resep_rosebrand_6.jpg",
+    "/images/resep_rosebrand_7.jpg",
+    "/images/resep_rosebrand_8.jpg",
+    "/images/resep_rosebrand_9.jpg",
+    "/images/resep_rosebrand_10.jpg",
+    "/images/resep_rosebrand_11.jpg",
+    "/images/resep_rosebrand_12.jpg",
   ];
 
   const testimonials = [
     {
-      image: "/internalsupportsb/public/images/testi_rosebrand_1.jpg",
+      image: "/images/testi_rosebrand_1.jpg",
       name: "Mas Zaing, 20th",
       job: "Pedagang Cakwe",
       comment:
         "Minyak goreng Rose Brand memiliki aroma sedap dan tidak menyengat. Terima Kasih ROSE BRAND!",
     },
     {
-      image: "/internalsupportsb/public/images/testi_rosebrand_2.jpg",
+      image: "/images/testi_rosebrand_2.jpg",
       name: "Yanti, 41th",
       job: "Pedagang Sop Duren",
       comment:
         "Produk ROSE BRAND berkualitas, membantu ibu rumah tangga mencari nafkah. Terima Kasih ROSE BRAND!",
     },
     {
-      image: "/internalsupportsb/public/images/testi_rosebrand_3.jpg",
+      image: "/images/testi_rosebrand_3.jpg",
       name: "Pak Narto, 45th",
       job: "Pedagang Kue Rangi",
       comment: "Dari awal dagang, selalu pakai Tepung Beras ROSE BRAND. Andalan terpercaya!",
     },
     {
-      image: "/internalsupportsb/public/images/testi_rosebrand_4.jpg",
+      image: "/images/testi_rosebrand_4.jpg",
       name: "Pak Sukarjo, 48th",
       job: "Pedagang Martabak",
       comment: "Paling favorit kalau goreng martabak telur pakai Minyak Goreng ROSE BRAND!",
@@ -72,14 +72,14 @@ const Homepage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Head title="Home">
-      <link rel="icon" type="image/png" href="/internalsupportsb/public/images/logo_internalsb.png" />
+      <link rel="icon" type="image/png" href="/images/logo_internalsb.png" />
       </Head>
       {/* Header */}
       <HomePageHeader/>
 
       {/* Hero Section */}
       <section className="pt-20">
-        <img src="/internalsupportsb/public/images/homepage.jpg" alt="Homepage Banner" className="w-full h-auto" />
+        <img src="/images/homepage.jpg" alt="Homepage Banner" className="w-full h-auto" />
       </section>
 
       {/* Resep Rosebrand */}
