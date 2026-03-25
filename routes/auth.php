@@ -21,9 +21,9 @@ Route::middleware('guest')->group(function () {
     Route::post('verify-register-access', function (\Illuminate\Http\Request $request) {
         if ($request->admin_password === 'gersang123') {
             $request->session()->put('register_access', true);
-            return response()->json(['success' => true]);
+            return redirect()->route('login');
         }
-        return response()->json(['success' => false], 403);
+        return back()->withErrors(['admin_password' => 'Wrong password']);
     })->name('verify.register.access');
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])

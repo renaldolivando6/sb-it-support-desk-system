@@ -31,6 +31,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
     const [showAdminModal, setShowAdminModal] = useState(false);
     const [adminPassword, setAdminPassword] = useState('');
     const [adminError, setAdminError] = useState('');
+    const [verifying, setVerifying] = useState(false);
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -47,12 +48,19 @@ export default function Login({ status, canResetPassword }: LoginProps) {
     };
 
     const handleAdminSubmit = () => {
-        if (adminPassword === 'gersang123') {
-            setShowAdminModal(false);
-            router.visit(route('register'));
-        } else {
-            setAdminError('Wrong admin password');
-        }
+        setVerifying(true);
+        router.post('/verify-register-access', { admin_password: adminPassword }, {
+            preserveState: true,
+            onSuccess: () => {
+                setShowAdminModal(false);
+                setVerifying(false);
+                router.visit(route('register'));
+            },
+            onError: (errors) => {
+                setAdminError(errors.admin_password || 'Wrong admin password');
+                setVerifying(false);
+            },
+        });
     };
 
     return (
@@ -138,10 +146,11 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                         />
                         {adminError && <p className="text-red-500 text-sm mt-2">{adminError}</p>}
                         <div className="flex justify-end gap-2 mt-4">
-                            <Button variant="outline" onClick={() => setShowAdminModal(false)}>
+                            <Button variant="outline" onClick={() => setShowAdminModal(false)} disabled={verifying}>
                                 Cancel
                             </Button>
-                            <Button onClick={handleAdminSubmit}>
+                            <Button onClick={handleAdminSubmit} disabled={verifying}>
+                                {verifying && <LoaderCircle className="h-4 w-4 animate-spin mr-2" />}
                                 Submit
                             </Button>
                         </div>
